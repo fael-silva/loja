@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/header';
 import { FaTrash } from "react-icons/fa";
+import ItemCart from '../../components/item-cart';
 
 function ProductCart(){
   const productList = [];
@@ -32,8 +33,11 @@ function ProductCart(){
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row" className="">
+                  <ItemCart />
+
+                    
+                    {/* <tr> 
+                      <th scope="row" className="">
                       <img src="http://lorempixel.com/640/480/food" class="img-thumbnail" alt="Product" width="256" height="192"></img>
                     </th>
                     <td>Saia rodada corte godê</td>
@@ -43,7 +47,8 @@ function ProductCart(){
                     </td>
                     <td>R$89,90</td>
                     <td className="text-center"><FaTrash /></td>
-                  </tr>
+                    </tr> */}
+
                 </tbody>
             </table>
           </div>
