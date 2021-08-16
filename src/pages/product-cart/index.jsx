@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/header';
 import ItemCart from '../../components/item-cart';
 
+
 function ProductCart(){
   const productList = [
     {id: 1, name:"Rustic Metal Fish", price: 289.00, image: "http://lorempixel.com/640/480/food", stock: 65171},
@@ -9,6 +10,9 @@ function ProductCart(){
     {id: 3, name:"Small Cotton Shoes", price: 993.00, image: "http://lorempixel.com/640/480/transport", stock: 36608},
   ];
 
+  const linkStyle = {
+    display: "contents"
+  };
 
   //Função para realizar delte do objeto no array
   function remove(id){
@@ -51,6 +55,31 @@ function ProductCart(){
           </div>
         </div>
       </section>
+
+      <div className="container">
+        <section className="py-2">
+          <div class="row">
+            <div class="col-10">
+              col-8
+            </div>
+            <div class="col-2">
+              Total: R$ x.xxx,xx { }
+            </div>
+          </div>
+        </section>
+        <section className="py-2">
+          <div class="row">
+            <div class="col-10 justify-content-end">
+              col-8
+            </div>
+            <div class="col-2">
+              <button type="button" class="btn btn-info">
+                <a class="nav-link" aria-current="page" href="/cart" style={linkStyle}>Prosseguir...</a>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
       
 
     </div>
