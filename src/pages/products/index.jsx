@@ -1,3 +1,4 @@
+import { remove } from 'js-cookie';
 import React,  { useState, useEffect } from 'react';
 import Header from '../../components/header';
 import ProductCard from '../../components/product-card';

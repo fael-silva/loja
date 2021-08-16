@@ -3,6 +3,16 @@ import Header from '../../components/header';
 import { FaTrash } from "react-icons/fa";
 
 function ProductCart(){
+  const productList = [];
+
+
+  //Função para realizar delte do objeto no array
+  function remove(id){
+    return;
+  }
+
+
+  // onClick={() => remove(item.id)}
   return(
     <div>
       <Header />
