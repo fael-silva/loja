@@ -1,4 +1,5 @@
 import React from 'react';
+import { stringLimit } from '../../utils/string';
 
 import {
   Button,
@@ -17,7 +18,7 @@ function ProductCard(props) {
         <Card>
           <CardImg width="100%" src={props.image} alt="Card image cap" />
           <CardBody>
-            <CardTitle tag="h5">{props.name}</CardTitle>
+            <CardTitle tag="h5">{stringLimit(props.name)}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">{props.price}</CardSubtitle>
             <Button color="success" className="text-center mt-auto">Adicione ao carrinho</Button>
           </CardBody>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/header';
 import ItemCart from '../../components/item-cart';
-
+import {formatPrice} from '../../utils/string';
 
 function ProductCart(){
   //aplicar o redux
@@ -46,7 +46,7 @@ function ProductCart(){
                       id={item.id} 
                       image={item.image} 
                       name={item.name} 
-                      price={item.price}
+                      price={formatPrice(item.price)}
                       stock={item.stock}
                     />
                   ))}
