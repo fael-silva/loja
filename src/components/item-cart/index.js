@@ -15,7 +15,7 @@ function ItemCart(props) {
         <td>
           <input type="number" step="1" min="0" name="quantity" size="2" />
         </td>
-        <td>{props.price}</td>
+        <td>{props.stock}</td>
         <td className="text-center"><FaTrash /></td>
       </tr>
     </div>
