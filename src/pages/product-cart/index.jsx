@@ -4,6 +4,7 @@ import ItemCart from '../../components/item-cart';
 
 
 function ProductCart(){
+  //aplicar o redux
   const productList = [
     {id: 1, name:"Rustic Metal Fish", price: 289.00, image: "http://lorempixel.com/640/480/food", stock: 65171},
     {id: 2, name:"Sleek Wooden Soap", price: 430.00, image: "http://lorempixel.com/640/480/transport", stock: 91260},
