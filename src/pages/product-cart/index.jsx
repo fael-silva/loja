@@ -1,10 +1,13 @@
 import React from 'react';
 import Header from '../../components/header';
-import { FaTrash } from "react-icons/fa";
 import ItemCart from '../../components/item-cart';
 
 function ProductCart(){
-  const productList = [];
+  const productList = [
+    {id: 1, name:"Rustic Metal Fish", price: 289.00, image: "http://lorempixel.com/640/480/food", stock: 65171},
+    {id: 2, name:"Sleek Wooden Soap", price: 430.00, image: "http://lorempixel.com/640/480/transport", stock: 91260},
+    {id: 3, name:"Small Cotton Shoes", price: 993.00, image: "http://lorempixel.com/640/480/transport", stock: 36608},
+  ];
 
 
   //Função para realizar delte do objeto no array
@@ -33,24 +36,17 @@ function ProductCart(){
                   </tr>
                 </thead>
                 <tbody>
-                  <ItemCart />
-
-                    
-                    {/* <tr> 
-                      <th scope="row" className="">
-                      <img src="http://lorempixel.com/640/480/food" class="img-thumbnail" alt="Product" width="256" height="192"></img>
-                    </th>
-                    <td>Saia rodada corte godê</td>
-                    <td>R$89,90</td>
-                    <td>
-                      <input type="number" step="1" min="0" name="quantity" size="2" />	
-                    </td>
-                    <td>R$89,90</td>
-                    <td className="text-center"><FaTrash /></td>
-                    </tr> */}
-
+                  {productList.map(item => (
+                    <ItemCart 
+                      id={item.id} 
+                      image={item.image} 
+                      name={item.name} 
+                      price={item.price}
+                    />
+                  ))}
                 </tbody>
             </table>
+            {/* adicionar "rodapé do carrinho" - total e forma de pagamento */}
           </div>
         </div>
       </section>
