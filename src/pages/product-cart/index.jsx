@@ -3,7 +3,7 @@ import Header from '../../components/header';
 import ItemCart from '../../components/item-cart';
 import {formatPrice} from '../../utils/string';
 
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Alert } from 'react-bootstrap';
 
 import 'react-bootstrap/ModalHeader';
 
@@ -17,19 +17,17 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
+          <Alert variant="success">
+            <h2>Compra realizada com sucesso</h2>
+          </Alert> 
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <h3>Compra de 15 itens no valor de R$ 890,00</h3>
+        
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={props.onHide}>Fechar e limpar carrinho</Button>
       </Modal.Footer>
     </Modal>
   );
@@ -104,11 +102,11 @@ function ProductCart(){
           </div>
         </section>
         <section className="py-2">
-          <div class="row">
-            <div class="col-10 justify-content-end">
+          <div className="row">
+            <div className="col-10 justify-content-end">
               
             </div>
-            <div class="col-2">
+            <div className="col-2">
               {/* <button type="button" class="btn btn-info">
                 <a class="nav-link" aria-current="page" href="/cart" style={linkStyle}>Prosseguir...</a>
               </button> */}
