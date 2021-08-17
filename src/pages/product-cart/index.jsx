@@ -3,7 +3,7 @@ import Header from '../../components/header';
 import ItemCart from '../../components/item-cart';
 import {formatPrice} from '../../utils/string';
 
-import { Modal, Button, Alert } from 'react-bootstrap';
+import { Modal, Button, Alert, FloatingLabel, Form} from 'react-bootstrap';
 
 import 'react-bootstrap/ModalHeader';
 import { useSelector } from 'react-redux';
@@ -82,9 +82,17 @@ function ProductCart(){
       <div className="container">
         <section className="py-2">
           <div className="row">
-            <div className="col-10">
-              
+            <div className="col-4">
+            <FloatingLabel controlId="floatingSelect" label="Formas de pagamento">
+              <Form.Select aria-label="Floating label select example">
+                <option>Clique para selecionar uma forma de pagamento</option>
+                <option value="1">Cartão</option>
+                <option value="2">Boleto</option>
+                <option value="3">Pixx</option>
+              </Form.Select>
+            </FloatingLabel>
             </div>
+            <div className="col-6"></div>
             <div className="col-2">
               Total: R$ {sumPrice()}
             </div>
