@@ -1,11 +1,9 @@
 import React from 'react';
 import Header from '../../components/header';
 import ItemCart from '../../components/item-cart';
-import {formatPrice} from '../../utils/string';
+import {MyVerticallyCenteredModal} from '../../components/modal-cart/';
 
-import { Modal, 
-         Button, 
-         Alert, 
+import { Button, 
          FloatingLabel, 
          Form, 
          Col,
@@ -14,34 +12,6 @@ import { Modal,
 
 import 'react-bootstrap/ModalHeader';
 import { useSelector } from 'react-redux';
-import { CardText } from 'reactstrap';
-
-function MyVerticallyCenteredModal(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered 
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          <Alert variant="success">
-            <h2>Compra realizada com sucesso</h2>
-          </Alert> 
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h3>Compra de {props.amount} itens no valor de R$ {props.sumPrice}</h3>
-        
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide} href="/cart">Fechar e limpar carrinho</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
-
 
 function ProductCart(){
   const [modalShow, setModalShow] = React.useState(false);
