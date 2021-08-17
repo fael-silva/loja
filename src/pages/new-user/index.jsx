@@ -45,7 +45,10 @@ function NewUser() {
                           </div>
                           <div class="col-md-6">
                             <div class="form-floating mb-3 mb-md-0">
-                              <input class="form-control" id="inputDate" type="date" placeholder="Entre com sua data de nascimento" />
+                              <input class="form-control" id="inputDate" type="date" placeholder="Entre com sua data de nascimento" 
+                              pattern="\\d{4}-\\d{2}-\\d{2}"
+                              title="Digite a data de nascimento no formato dd/mm/aaaa"
+                              />
                               <label for="inputDate">Data de Nascimento</label>
                             </div>
                           </div>
