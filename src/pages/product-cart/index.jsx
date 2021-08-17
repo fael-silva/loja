@@ -7,6 +7,7 @@ import { Modal, Button, Alert } from 'react-bootstrap';
 
 import 'react-bootstrap/ModalHeader';
 import { useSelector } from 'react-redux';
+import { CardText } from 'reactstrap';
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -24,7 +25,7 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h3>Compra de 15 itens no valor de R$ 890,00</h3>
+        <h3>Compra de {props.amount} itens no valor de R$ {props.sumPrice}</h3>
         
       </Modal.Body>
       <Modal.Footer>
@@ -39,23 +40,13 @@ function ProductCart(){
   const [modalShow, setModalShow] = React.useState(false);
   const cart = useSelector((state) => state.cart);
 
-  const productList = [
-    {id: 1, name:"Rustic Metal Fish", price: 289.00, image: "http://lorempixel.com/640/480/food", stock: 65171},
-    {id: 2, name:"Sleek Wooden Soap", price: 430.00, image: "http://lorempixel.com/640/480/transport", stock: 91260},
-    {id: 3, name:"Small Cotton Shoes", price: 993.00, image: "http://lorempixel.com/640/480/transport", stock: 36608},
-  ];
+  function sumPrice(){
+    let totalPrice = 0;
+    cart.map(item => totalPrice += parseInt(item.price));
 
-  const linkStyle = {
-    display: "contents"
-  };
-
-  //Função para realizar delte do objeto no array
-  function remove(id){
-    return;
+    return totalPrice;
   }
 
-
-  // onClick={() => remove(item.id)}
   return(
     <div>
       <Header />
@@ -95,7 +86,7 @@ function ProductCart(){
               
             </div>
             <div className="col-2">
-              Total: R$ x.xxx,xx { }
+              Total: R$ {sumPrice()}
             </div>
           </div>
         </section>
@@ -105,9 +96,6 @@ function ProductCart(){
               
             </div>
             <div className="col-2">
-              {/* <button type="button" className="btn btn-info">
-                <a className="nav-link" aria-current="page" href="/cart" style={linkStyle}>Prosseguir...</a>
-              </button> */}
               <Button variant="primary" onClick={() => setModalShow(true)}>
                 Prosseguir...
               </Button>
@@ -115,6 +103,8 @@ function ProductCart(){
               <MyVerticallyCenteredModal
                 show={modalShow}
                 onHide={() => setModalShow(false)}
+                sumPrice = {sumPrice()}
+                amount = {cart.length}
               />
             </div>
           </div>
