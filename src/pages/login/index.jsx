@@ -59,7 +59,10 @@ function Login() {
                     <div class="card-body">
                       <form onSubmit={onSubmit}>
                         <div class="form-floating mb-3">
-                          <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" onChange={onChange} value={values.email} />
+                          <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" onChange={onChange} value={values.email} 
+                          pattern="[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+"
+                          title="Entre com um email válido"
+                          />
                           <label for="email">Email</label>
                         </div>
                         <div class="form-floating mb-3">
