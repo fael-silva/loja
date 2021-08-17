@@ -6,6 +6,7 @@ import {formatPrice} from '../../utils/string';
 import { Modal, Button, Alert } from 'react-bootstrap';
 
 import 'react-bootstrap/ModalHeader';
+import { useSelector } from 'react-redux';
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -36,7 +37,7 @@ function MyVerticallyCenteredModal(props) {
 
 function ProductCart(){
   const [modalShow, setModalShow] = React.useState(false);
-
+  const cart = useSelector((state) => state.cart);
 
   const productList = [
     {id: 1, name:"Rustic Metal Fish", price: 289.00, image: "http://lorempixel.com/640/480/food", stock: 65171},
@@ -62,41 +63,38 @@ function ProductCart(){
       <section className="py-3">
         <div className="container px-4 px-lg-5 mt-5">
           <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Imagem</th>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Preço</th>
-                    {/* <th scope="col">Quantidade</th> */}
-                    <th scope="col">Estoque</th>
-                    <th scope="col">Remover</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {productList.map(item => (
-                    <ItemCart 
-                      id={item.id} 
-                      image={item.image} 
-                      name={item.name} 
-                      price={formatPrice(item.price)}
-                      stock={item.stock}
-                    />
-                  ))}
-                </tbody>
-            </table>
-            {/* adicionar "rodapé do carrinho" - total e forma de pagamento */}
+            {cart.length === 0 ? (<p>Lista está vazia...</p>) : (
+              <table className="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Imagem</th>
+                      <th scope="col">Produto</th>
+                      <th scope="col">Preço</th>
+                      <th scope="col">Estoque</th>
+                      <th scope="col">Remover</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cart.map((item, index) => (
+                      <ItemCart 
+                        key={index}
+                        product={item}
+                      />
+                    ))}
+                  </tbody>
+              </table>
+            )}
           </div>
         </div>
       </section>
 
       <div className="container">
         <section className="py-2">
-          <div class="row">
-            <div class="col-10">
+          <div className="row">
+            <div className="col-10">
               
             </div>
-            <div class="col-2">
+            <div className="col-2">
               Total: R$ x.xxx,xx { }
             </div>
           </div>
@@ -107,8 +105,8 @@ function ProductCart(){
               
             </div>
             <div className="col-2">
-              {/* <button type="button" class="btn btn-info">
-                <a class="nav-link" aria-current="page" href="/cart" style={linkStyle}>Prosseguir...</a>
+              {/* <button type="button" className="btn btn-info">
+                <a className="nav-link" aria-current="page" href="/cart" style={linkStyle}>Prosseguir...</a>
               </button> */}
               <Button variant="primary" onClick={() => setModalShow(true)}>
                 Prosseguir...

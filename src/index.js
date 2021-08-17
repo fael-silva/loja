@@ -4,12 +4,16 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Root from './pages/root';
+import { Provider } from 'react-redux';
+import store from './store';
 
 // import Login from './pages/login';
 // import Products from './pages/products';
 
 ReactDOM.render(
-  <Root />,
+  <Provider store={store}>
+    <Root />
+  </Provider>,
   document.getElementById('root')
 );
 

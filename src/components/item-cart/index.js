@@ -1,21 +1,29 @@
 import React from 'react';
 import { FaTrash } from "react-icons/fa";
+import { formatPrice } from '../../utils/string';
+import { useDispatch } from 'react-redux';
+import { removeItem } from '../../store/ducks/cart';
 
+function ItemCart({ product }) {
+  const dispatch = useDispatch();
 
+  function removeItemCart(id) {
+    dispatch(removeItem(id));
+  }
 
-function ItemCart(props) {
   return (
-    <tr key={props.id}>
+    <tr key={product.id}>
       <th scope="row" className="">
-        <img src={props.image} class="img-thumbnail" alt="Product" width="256" height="192"></img>
+        <img src={product.image} className="img-thumbnail" alt="Product" width="256" height="192"></img>
       </th>
-      <td>{props.name}</td>
-      <td>{props.price}</td>
-      {/* <td>
-        <input type="number" step="1" min="0" name="quantity" size="2" />
-      </td> */}
-      <td>{props.stock}</td>
-      <td className="text-center"><FaTrash /></td>
+      <td>{product.name}</td>
+      <td>{formatPrice(product.price)}</td>
+      <td>{product.stock}</td>
+      <td className="text-center">
+        <button className="btn btn-danger" onClick={() => removeItemCart(product.id)}>
+          <FaTrash />
+        </button>
+      </td>
     </tr>
   );
 }

@@ -51,26 +51,26 @@ function Login() {
       <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
           <main>
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-5">
-                  <div class="card shadow-lg border-0 rounded-lg mt-5">
-                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
-                    <div class="card-body">
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-lg-5">
+                  <div className="card shadow-lg border-0 rounded-lg mt-5">
+                    <div className="card-header"><h3 className="text-center font-weight-light my-4">Login</h3></div>
+                    <div className="card-body">
                       <form onSubmit={onSubmit}>
-                        <div class="form-floating mb-3">
-                          <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" onChange={onChange} value={values.email} 
+                        <div className="form-floating mb-3">
+                          <input className="form-control" id="email" name="email" type="email" placeholder="name@example.com" onChange={onChange} value={values.email} 
                           pattern="[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+"
                           title="Entre com um email válido" required
                           />
                           <label for="email">Email</label>
                         </div>
-                        <div class="form-floating mb-3">
-                          <input class="form-control" id="password" name="password" type="password" placeholder="Senha" onChange={onChange} value={values.password} required/>
+                        <div className="form-floating mb-3">
+                          <input className="form-control" id="password" name="password" type="password" placeholder="Senha" onChange={onChange} value={values.password} required/>
                           <label for="password">Senha</label>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                          <button type="submit" class="btn btn-primary" rounded>Entrar</button> 
+                        <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
+                          <button type="submit" className="btn btn-primary" rounded>Entrar</button> 
                         </div>
                       </form>
                     </div>
