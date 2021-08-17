@@ -29,7 +29,7 @@ function MyVerticallyCenteredModal(props) {
         
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Fechar e limpar carrinho</Button>
+        <Button onClick={props.onHide} href="/cart">Fechar e limpar carrinho</Button>
       </Modal.Footer>
     </Modal>
   );
