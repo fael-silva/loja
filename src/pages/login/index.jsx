@@ -61,12 +61,12 @@ function Login() {
                         <div class="form-floating mb-3">
                           <input class="form-control" id="email" name="email" type="email" placeholder="name@example.com" onChange={onChange} value={values.email} 
                           pattern="[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+"
-                          title="Entre com um email válido"
+                          title="Entre com um email válido" required
                           />
                           <label for="email">Email</label>
                         </div>
                         <div class="form-floating mb-3">
-                          <input class="form-control" id="password" name="password" type="password" placeholder="Senha" onChange={onChange} value={values.password} />
+                          <input class="form-control" id="password" name="password" type="password" placeholder="Senha" onChange={onChange} value={values.password} required/>
                           <label for="password">Senha</label>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
