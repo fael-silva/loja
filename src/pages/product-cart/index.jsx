@@ -3,7 +3,14 @@ import Header from '../../components/header';
 import ItemCart from '../../components/item-cart';
 import {formatPrice} from '../../utils/string';
 
-import { Modal, Button, Alert, FloatingLabel, Form} from 'react-bootstrap';
+import { Modal, 
+         Button, 
+         Alert, 
+         FloatingLabel, 
+         Form, 
+         Col,
+         Row
+} from 'react-bootstrap';
 
 import 'react-bootstrap/ModalHeader';
 import { useSelector } from 'react-redux';
@@ -83,16 +90,17 @@ function ProductCart(){
         <section className="py-2">
           <div className="row">
             <div className="col-4">
-            <FloatingLabel controlId="floatingSelect" label="Formas de pagamento">
-              <Form.Select aria-label="Floating label select example">
-                <option>Clique para selecionar uma forma de pagamento</option>
-                <option value="1">Cartão</option>
-                <option value="2">Boleto</option>
-                <option value="3">Pixx</option>
-              </Form.Select>
-            </FloatingLabel>
+              <FloatingLabel controlId="floatingSelect" label="Formas de pagamento">
+                <Form.Select aria-label="Floating label select example">
+                  <option>Clique para selecionar uma forma de pagamento</option>
+                  <option value="1">Cartão</option>
+                  <option value="2">Boleto</option>
+                  <option value="3">Pixx</option>
+                </Form.Select>
+              </FloatingLabel>
             </div>
-            <div className="col-6"></div>
+            <div className="col-6">
+            </div>
             <div className="col-2">
               Total: R$ {sumPrice()}
             </div>
@@ -100,7 +108,19 @@ function ProductCart(){
         </section>
         <section className="py-2">
           <div className="row">
-            <div className="col-10 justify-content-end">
+            <div className="col-4">
+              <Form>
+                <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+                  {/* <Form.Label column sm="3">
+                    Cupom
+                  </Form.Label> */}
+                  <Col sm="12">
+                    <Form.Control type="text" placeholder="Cupom de desconto" />
+                  </Col>
+                </Form.Group>
+              </Form>
+            </div>
+            <div className="col-6">
               
             </div>
             <div className="col-2">
